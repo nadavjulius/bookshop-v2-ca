@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amazon 2.0 📚 | by BlackCoffeeProductions</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="img/icon.pgn" type="image/x-icon">
+</head>
+
+<body onload="init()">
+    <div class="page-container">
+        <header>
+            <div class="logo-container">
+                <h2 data-trans="logo">Amazon 2.0 📚</h2>
+                <span data-trans="logo-sub">by BlackCoffeeProductions</span>
+            </div>
+            <div class="sort-container">
+                <h3 data-trans="filter">Sort Books</h3>
+                <select class="sorting-selection-menu" onchange="onSortChanged(this.value)">
+                    <option data-trans="filter-name">Name</option>
+                    <option data-trans="filter-rating">Rating</option>
+                    <option data-trans="filter-price">Price</option>
+                </select>
+            </div>
+            <div class="sort-btn-container">
+                <h3 data-trans="filter">Sort Books</h3>
+                <div>
+                    <button data-trans="filter-name" class="sorting-btn" onclick="onSortChangedBtn(this)">
+                        Name</button>
+                    <button data-trans="filter-rating" class="sorting-btn" onclick="onSortChangedBtn(this)">
+                        Rating</button>
+                    <button data-trans="filter-price" class="sorting-btn" onclick="onSortChangedBtn(this)">
+                        Price</button>
+                </div>
+            </div>
+            <div class="language-container">
+                <select class="language-container-menu" onchange="onSetLang(this.value)">
+                    <option value="en">English</option>
+                    <option value="he">עברית</option>
+                </select>
+            </div>
+        </header>
+
+
+        <div class="content-wrap">
+
+            <div class="table-container">
+                <table>
+                    <thead class="table-head">
+                        <th>
+                            <div data-trans="add-new-book" onclick="onOpenAddBookModal()" class="open-book-modal-btn">
+                                Add New Book</div>
+                        </th>
+                        <th data-trans="thead-id">id</th>
+                        <th data-trans="thead-title">Title</th>
+                        <th data-trans="thead-price">Price</th>
+                        <th title="Rating (1-9)">⭐⭐</th>
+                    </thead>
+                    <tbody class="table-body">
+                    </tbody>
+                </table>
+                <div class="change-page-btns-container">
+                    <button onclick="onChangePage(-1)">Prev Page</button>
+                    <div class="selcet-page-btn-container"></div>
+                    <button onclick="onChangePage(1)">Next Page</button>
+                </div>
+            </div>
+            <div class="modal-add">
+                <div class="modal-add-content">
+                    <h2 data-trans="model-add-new">📝 Add New Book</h2>
+                    <input data-trans="model-add-new-name" placeholder="Book Name" type="text" class="txt-book-name" />
+                    <input data-trans="model-add-new-author" placeholder="Author Name" type="text"
+                        class="txt-auther-name" />
+                    <input data-trans="model-add-new-price" placeholder="Book Price" type="text"
+                        class="txt-book-price" />
+                    <input data-trans="model-add-new-prev" placeholder="Book Preview" type="text"
+                        class="txt-book-prev" />
+                    <input data-trans="model-add-new-rating" title="Rate your book from 1-9" type="number" value="0"
+                        min="0" max="9" class="txt-rating" />
+                    <input data-trans="model-add-new-link" placeholder="Link to Books Cover Image" type="text"
+                        class="txt-url" />
+                    <button data-trans="model-add-new-btn" onclick="onAddBook()" class="add-book-btn">Add Book</button>
+                    <div></div>
+                    <span onclick="onCloseAddModalbtn()" class="close">&times;</span>
+                </div>
+            </div>
+
+            <div class="modal-edit">
+                <div class="modal-edit-content">
+                    <h2 data-trans="edit-modal">📝 Edit Book</h2>
+                    <input data-trans="edit-modal-price" placeholder="Book Price" type="text"
+                        class="txt-edit-book-price" />
+                    <input data-trans="edit-modal-prev" placeholder="Book Preview" type="text"
+                        class="txt-edit-book-prev" />
+                    <input data-trans="edit-modal-img" placeholder="Link to Books Cover Image" type="text"
+                        class="txt-edit-url" />
+                    <span class="save-changes-btn"></span>
+                    <div></div>
+                    <span onclick="onCloseEditModalbtn()" class="close">&times;</span>
+                </div>
+            </div>
+            <div class="modal-book-details"></div>
+        </div>
+
+
+    </div>
+    <footer>
+        &copy; BlackCoffeeProductions 2020 | Javascript powerd by Java... lots and lots of Java 🍵
+    </footer>
+    </div>
+    <script src="js/storage-service.js"></script>
+    <script src="js/i18n-service.js"></script>
+    <script src="js/bookstore-service.js"></script>
+    <script src="js/bookstore-controller.js"></script>
+</body>
+
+</html>
